@@ -1,4 +1,4 @@
-import json, os, httplib, datetime
+import json, os, httplib, datetime, base64
 from time import sleep
 
 def run():
@@ -30,8 +30,14 @@ def run():
 def trigger(jobName):
 	print "######## triggering jenkins job: {%s} ########" % jobName
 	path = "/jenkins/job/" + jobName + "/build"
-	conn = httplib.HTTPConnection(configs["jenkins_url"])
-	conn.request("GET", path)
+	conn = httplib.HTTPConnection(configs['jenkins_url'])
+	if configs['jenkins_username'] is not None:
+		encodeStr = base64.encodestring('%s:%s' % (configs['jenkins_username'], configs['jenkins_password']))[:-1]
+		authheader =  "Basic %s" % encodeStr
+		headers = {"Authorization": authheader}
+		conn.request("GET", path, None, headers)
+	else:
+		conn.request("GET", path)
 	
 	
 def loadJsonData(path):
