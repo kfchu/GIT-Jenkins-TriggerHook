@@ -1,0 +1,12 @@
+{
+    "jenkins_url": "localhost:8089",
+	"install_dir": "your direcotry of codes",
+	"repository_list": ["project1"], 
+	"folder_job_mappings" :{
+		"project1": {
+			"core": "job-core",
+			"server": "job-server"
+		}
+	},
+	"scan_interval": 5 
+}
