@@ -2,7 +2,8 @@
 This script is to trigger the Jenkins job remotely when the code is updated using GIT.
 
 # How does work?
-
+The script will scan the git changes time by time. 
+If change is found, it will find out which folder is changed and trigger the relative jenkins job.
 
 # How to use?
 Step1: modify the config.json to update the parameters.
