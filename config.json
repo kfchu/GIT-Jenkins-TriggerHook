@@ -1,14 +1,14 @@
 {
-    "jenkins_url" : "localhost:8089",
-    "jenkins_username" : "admin",
-    "jenkins_password" : "admin",
-    "install_dir" : "folder of your source code",
+    "jenkins_url" : "localhost:8080",
+	"token" : "triggerit",
+    "install_dir" : "myfolder",
     "repository_list" : ["oauth"],
     "folder_job_mappings" : {
         "oauth" : {
-            "oauth-core" : "oauth-core",
-            "oauth-server" : "oauth-server"
+            "oauth-core" : "jenkins-oauth-core",
+            "oauth-server" : "jenkins-oauth-server"
         }
     },
-    "scan_interval" : 5
+	"running_mode" : "",
+	"scan_interval" : 5
 }
